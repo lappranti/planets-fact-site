@@ -1,0 +1,125 @@
+//Colors
+$white: #ffffff;
+$primary: #070724;
+$secondary: #38384f;
+$tertiary: #838391;
+
+$color1: #419ebb;
+$color2: #eda249;
+$color3: #6d2ed5;
+$color4: #d14c32;
+$color5: #d83a34;
+$color6: #cd5120;
+$color7: #1ec1a2;
+$color8: #2d68f0;
+
+@mixin typo($type) {
+  @if ($type == "h2") {
+    font-family: "Antonio";
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 104px;
+  } @else if($type== "h3") {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 2.57143px;
+  } @else if($type== "h4") {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 25px;
+    letter-spacing: 1px;
+  } @else if($type== "b") {
+    font-family: "Spartan";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  background-color: $primary;
+  border: 1px solid $tertiary;
+  padding: 12px 28px;
+
+  @include typo("h2");
+  text-transform: uppercase;
+
+  &__num {
+    color: $tertiary;
+  }
+  &__text {
+    color: $white;
+  }
+
+  &--mercure {
+    &:hover {
+      background-color: $secondary;
+    }
+    &:active {
+      background-color: $color1;
+    }
+  }
+  &--venus {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color2;
+    }
+  }
+  &--terre {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color3;
+    }
+  }
+  &--mars {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color4;
+    }
+  }
+  &--jupiter {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color5;
+    }
+  }
+  &--saturne {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color6;
+    }
+  }
+  &--uranus {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color7;
+    }
+  }
+  &--neptune {
+    &:hover {
+      background-color: $tertiary;
+    }
+    &:active {
+      background-color: $color8;
+    }
+  }
+}

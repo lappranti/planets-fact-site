@@ -1,0 +1,381 @@
+@import "../app/shared/style";
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background-color: $primary;
+  background-image: url("../assets/background-stars.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &.desableScrol {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+}
+
+.planet {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 8vw 56px;
+
+  &__resum {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+
+    .viewMode {
+      display: none;
+      height: 50px;
+      width: 100vw;
+      &__item {
+        font-family: "Spartan";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 10px;
+
+        text-align: center;
+        letter-spacing: 1.92857px;
+        color: $white;
+
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        position: relative;
+
+        &.selected {
+          .bare {
+            transform: scaleX(1);
+          }
+        }
+        .bare {
+          position: absolute;
+          top: calc(100% - 4px);
+
+          display: block;
+          height: 4px;
+          width: 100%;
+          transform: scaleX(0);
+
+          &--mercury {
+            background-color: $color1;
+          }
+          &--venus {
+            background-color: $color2;
+          }
+          &--earth {
+            background-color: $color3;
+          }
+          &--mars {
+            background-color: $color4;
+          }
+          &--jupiter {
+            background-color: $color5;
+          }
+
+          &--saturn {
+            background-color: $color6;
+          }
+          &--uranus {
+            background-color: $color7;
+          }
+
+          &--neptune {
+            background-color: $color8;
+          }
+        }
+        &:hover {
+          .bare {
+            transform: scaleX(1);
+            transition: transform 0.4s ease-in-out;
+          }
+        }
+
+        @media only screen and (max-width: 420px) {
+          font-size: 9px;
+          line-height: 10px;
+        }
+      }
+
+      @media only screen and (max-width: 690px) {
+        border-bottom: 1px solid #d8d8d820;
+
+        display: flex;
+        justify-content: space-between;
+        padding: 0 32px;
+      }
+    }
+
+    .image {
+      flex: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      img {
+        display: block;
+        max-width: 100%;
+
+        &:nth-of-type(2) {
+          position: absolute;
+          top: 50%;
+          width: 165px;
+        }
+      }
+
+      &.geology {
+        align-items: flex-start;
+      }
+
+      @media only screen and (max-width: 400px) {
+        img {
+          &:nth-of-type(2) {
+            width: 120px;
+          }
+        }
+      }
+    }
+
+    .description {
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .title {
+        @include typo("h2");
+        color: $white;
+      }
+
+      .text {
+        @include typo("b");
+        color: $white;
+      }
+
+      .source {
+        display: flex;
+        align-items: center;
+        color: #ffffff50;
+        @include typo("b");
+
+        a {
+          color: #ffffff50;
+        }
+      }
+
+      .btns {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &__item {
+          width: 100%;
+          padding: 12px 24px 12px 28px;
+          border: 1px solid #ffffff20;
+
+          display: flex;
+          align-items: center;
+          gap: 28px;
+          cursor: pointer;
+          @include typo("h3");
+
+          .number {
+            color: #ffffff50;
+          }
+          .contentName {
+            color: #ffffff;
+          }
+
+          &:hover {
+            transition: background-color 0.4s ease-in-out;
+            background-color: #d8d8d820;
+          }
+
+          &.Mercury {
+            &.selected {
+              background-color: $color1;
+            }
+          }
+          &.Venus {
+            &.selected {
+              background-color: $color2;
+            }
+          }
+          &.Earth {
+            &.selected {
+              background-color: $color3;
+            }
+          }
+          &.Mars {
+            &.selected {
+              background-color: $color4;
+            }
+          }
+          &.Jupiter {
+            &.selected {
+              background-color: $color5;
+            }
+          }
+
+          &.Saturn {
+            &.selected {
+              background-color: $color6;
+            }
+          }
+          &.Uranus {
+            &.selected {
+              background-color: $color7;
+            }
+          }
+
+          &.Neptune {
+            &.selected {
+              background-color: $color8;
+            }
+          }
+        }
+
+        @media only screen and (max-width: 850px) {
+          &__item {
+            font-size: 10px;
+            line-height: 25px;
+            letter-spacing: 1.92857px;
+            padding: 8px 20px;
+          }
+        }
+
+        @media only screen and (max-width: 690px) {
+          display: none;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 850px) {
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 40px;
+
+      .image {
+        height: 430px;
+        img {
+          display: block;
+          max-height: 100%;
+        }
+      }
+      .description {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: none;
+        width: 100%;
+
+        .title {
+          font-weight: 400;
+          font-size: 48px;
+          line-height: 62px;
+
+          @media only screen and (max-width: 690px) {
+            font-size: 40px;
+            line-height: 52px;
+          }
+        }
+
+        > div {
+          max-width: 340px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+
+          @media only screen and (max-width: 690px) {
+            max-width: none;
+
+            > * {
+              display: flex;
+              justify-content: center;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: 690px) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__detail {
+    height: 128px;
+
+    display: flex;
+    gap: 24px;
+
+    .item {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+
+      border: 1px solid #ffffff20;
+      padding: 20px 24px;
+
+      .text {
+        @include typo("h4");
+        color: #ffffff50;
+      }
+      .value {
+        font-family: "Antonio";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 52px;
+        letter-spacing: -1.5px;
+        color: #ffffff;
+
+        @media only screen and (max-width: 920px) {
+          font-size: 30px;
+          line-height: 42px;
+        }
+      }
+    }
+    @media only screen and (max-width: 850px) {
+      gap: 11px;
+      .item {
+        padding: 16px;
+
+        .value {
+          font-size: 24px;
+          line-height: 31px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 690px) {
+      height: auto;
+      flex-direction: column;
+
+      .item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    gap: 24px;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="container">
+  <span class="logo">THE PLANETS</span>
+  <div class="hamburger" (click)="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <ul class="link" [ngClass]="menuMobile ? 'showMenu' : ''">
+    <li
+      class="link__item"
+      *ngFor="let link of linkList"
+      [ngClass]="'link__item--' + link.name.toLocaleLowerCase()"
+      (click)="selectPlanet(link)"
+    >
+      <span>{{ link.name }}</span> <i class="bi bi-chevron-right"></i>
+    </li>
+  </ul>
+</div>

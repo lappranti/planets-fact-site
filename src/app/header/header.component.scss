@@ -1,0 +1,275 @@
+@import "../shared/style";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //gap: 32px;
+
+  border-bottom: 1px solid #ffffff20;
+  padding: 0 32px;
+  position: relative;
+
+  @media only screen and (max-width: 850px) {
+    flex-direction: column;
+    gap: 40px;
+
+    .logo {
+      padding-bottom: 0;
+    }
+    .link {
+      padding: 0 32px;
+      z-index: 10;
+      &__item {
+        padding-top: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 690px) {
+    flex-direction: row;
+    padding: 24px;
+    .logo {
+      padding: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .link {
+      position: absolute;
+      top: 100%;
+      right: 0;
+
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+
+      width: calc(375 / 16) * 1rem;
+      min-height: calc(100vh - 85px);
+      padding: 0 24px;
+      border-left: 1px solid #ffffff20;
+      border-top: 1px solid #ffffff20;
+      margin-right: -375px;
+      transition: margin 0.6s ease-in;
+
+      &.showMenu {
+        margin-right: 0px;
+      }
+
+      &__item {
+        padding: 20px 0;
+        border-bottom: 1px solid #ffffff20;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: relative;
+
+        &:nth-of-type(8) {
+          border: none;
+        }
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          content: "";
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          //background-color: $color1;
+          border-radius: 50%;
+        }
+
+        span {
+          padding-left: 44px;
+        }
+      }
+
+      i {
+        display: block;
+      }
+    }
+
+    @media only screen and (max-width: 375px) {
+      padding: 16px 24px;
+
+      .link {
+        width: 100%;
+        border: none;
+        border-top: 1px solid #ffffff20;
+        margin-right: -100%;
+      }
+    }
+  }
+}
+.logo {
+  font-family: "Antonio";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -1.05px;
+  text-transform: uppercase;
+  color: $white;
+  padding: 32px 0 28px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  .line {
+    width: 100%;
+    height: 3px;
+    background-color: $white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    &:first-child {
+      transform-origin: top left;
+      &.active {
+        transform: rotate(35deg);
+      }
+    }
+    &:nth-child(2) {
+      opacity: 1;
+      transform-origin: top center;
+      &.active {
+        opacity: 0;
+      }
+    }
+    &:last-child {
+      transform-origin: bottom left;
+      &.active {
+        transform: rotate(-40deg);
+      }
+    }
+  }
+  &.active {
+    .line {
+      background-color: $tertiary;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  background-color: $primary;
+  background-image: url("../../assets/background-stars.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__item {
+    cursor: pointer;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 25px;
+    /* identical to box height, or 227% */
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $white;
+    padding: 32px 0 28px;
+    position: relative;
+
+    &--mercury {
+      &::before {
+        background-color: $color1;
+      }
+      &::after {
+        background-color: $color1;
+      }
+    }
+    &--venus {
+      &::before {
+        background-color: $color2;
+      }
+      &::after {
+        background-color: $color2;
+      }
+    }
+    &--earth {
+      &::before {
+        background-color: $color3;
+      }
+      &::after {
+        background-color: $color3;
+      }
+    }
+    &--mars {
+      &::before {
+        background-color: $color4;
+      }
+      &::after {
+        background-color: $color4;
+      }
+    }
+    &--jupiter {
+      &::before {
+        background-color: $color5;
+      }
+      &::after {
+        background-color: $color5;
+      }
+    }
+
+    &--saturn {
+      &::before {
+        background-color: $color6;
+      }
+      &::after {
+        background-color: $color6;
+      }
+    }
+    &--uranus {
+      &::before {
+        background-color: $color7;
+      }
+      &::after {
+        background-color: $color7;
+      }
+    }
+
+    &--neptune {
+      &::before {
+        background-color: $color8;
+      }
+      &::after {
+        background-color: $color8;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      //background-color: $color1;
+      transform: scaleX(0);
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+
+    i {
+      display: none;
+    }
+  }
+}
