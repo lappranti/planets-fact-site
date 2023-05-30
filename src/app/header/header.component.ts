@@ -35,5 +35,6 @@ export class HeaderComponent implements OnInit {
   selectPlanet(planet: any) {
     this.selectedPlanet = planet;
     this.currantOutpu.emit(this.selectedPlanet);
+    this.toggleMenu();
   }
 }
