@@ -127,6 +127,7 @@
       img {
         display: block;
         max-width: 100%;
+        animation: imageAnimation 0.8s ease-in-out;
 
         &:nth-of-type(2) {
           position: absolute;
@@ -377,5 +378,16 @@
 
   @media only screen and (max-width: 850px) {
     gap: 24px;
+  }
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

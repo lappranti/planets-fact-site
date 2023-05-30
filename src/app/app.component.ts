@@ -68,7 +68,6 @@ export class AppComponent implements OnInit {
     this.initializeView();
   }
   isMenuMobileToggle(action: any) {
-    console.log(action);
     this.menuSideView = action;
   }
 
